@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='include/css/main.css?t=<?=time();?>'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Διεύθυνση</title>
+</head>
+<body>
+<?php 
+      include_once("navbar.php");
+      navbar("addressGR","address.php", ["Αρχική","Σχετικά","Τρόποι Επικοινωνιάς","Email","Κινήτο","Διεύθυνση","Προϊόντα","Εγγραφή"],"GR")?>
+
+<img src="include/images/contactus.png" class="contactimg" alt="contact us">
+    <div class="contactpage">
+        <h2>Η διεύθυνση μας είναι:</h2>
+        <h4><a href="https://www.google.com/maps/place/Technical+College+Private+Emile+Metz/@49.6348855,6.132719,17z/data=!3m1!4b1!4m5!3m4!1s0x47954f18c1f8a721:0xdf0b2f1f4e71633b!8m2!3d49.6348855!4d6.1349077"
+            target="blank">
+            <li class=" fa fa-fw fw fa-map-marker"></li> Διεύθυνση: 19 rue du Beggen, Luxembourg
+        </a></h4>
+    </div
+</body>
+</html>
