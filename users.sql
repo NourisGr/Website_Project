@@ -45,6 +45,7 @@ CREATE TABLE Descriptions(
     LID int NOT NULL,
     DescText VARCHAR(500),
     PRIMARY KEY (DescID),
+    
     FOREIGN KEY (PID) REFERENCES Products(PID),
     FOREIGN KEY (LID) REFERENCES LANGUAGES(LanguageID)
 );
