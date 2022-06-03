@@ -43,14 +43,14 @@
 
 
 
-            <?php
+        <?php
 
             $sqlProducts = $connection->prepare("SELECT * From Products join Descriptions using (PID)  where LID=1");
             $sqlProducts->execute();
             $result = $sqlProducts->get_result();
-            while ($row = $result->fetch_assoc()) {
-
-            ?>
+            while ($row = $result->fetch_assoc()) 
+            {
+        ?>
                 <div class="column">
                     <h2><?= $row["ProductsName"] ?></h2>
                     <p<a href="Showdetail.php?PID=<?= $row["PID"] ?>">
@@ -58,7 +58,6 @@
                         </a></p>
                         <h5><?= $row["DescText"] ?> </h5>
                         <h4> <?= $row["ProductsPrice"] ?>€</h4>
-
 
                         <form method="POST">
                             <input type="hidden" name="BuyProduct" value="<?= $row["PID"] ?>">

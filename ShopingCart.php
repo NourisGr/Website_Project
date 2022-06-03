@@ -24,6 +24,32 @@
         <?php
         include_once("commoncode.php");
 
+        if (isset($_POST["BuyAll"])) 
+        {
+            if (count($_SESSION["ShoppingCart"]) == 0) 
+            {
+                print("You cannot place empty orders");
+            } else 
+            {
+                $uniqueOrderId = time() . $_SESSION["User"];
+                // start inserting
+                $sqlInsert = $connection->prepare("INSERT into Orders(OrderId,UserId) VALUES(?,?)");
+                $sqlInsert->bind_param("si", $uniqueOrderId, $_SESSION["UserId"]);
+                $sqlInsert->execute();
+    
+                // insert items in to the list table
+    
+                foreach ($_SESSION["ShoppingCart"] as $key => $value) 
+                {
+                    $sqlInsert = $connection->prepare("INSERT into List(PID,NumberOfItems,OrderId) VALUES(?,?,?)");
+                    $sqlInsert->bind_param("iis",$key,$value,$uniqueOrderId);
+                    $sqlInsert->execute();
+                }
+    
+                $_SESSION["ShoppingCart"]  = [];
+            }
+        }
+
         if (!$_SESSION["UserLoggedIn"]) {
             header("location: products.php");
             die;
@@ -37,7 +63,7 @@
 
         <h1>Here is the list with the products</h1>
         <ul>
-       
+
             <?php
             $TotalPrice = 0;
             foreach ($_SESSION["ShoppingCart"] as $key => $value) {
@@ -49,14 +75,14 @@
 
             ?>
 
-<div class="">
+                <div class="">
 
-                <li>You want this item : <?= $row["ProductsName"] ?>, <img src="include/images/<?= $row["img"] ?>">, <?= $value ?> times. It will cost you <?= $row["ProductsPrice"] * $value ?>€</li>
+                    <li>You want this item : <?= $row["ProductsName"] ?>, <img src="include/images/<?= $row["img"] ?>">, <?= $value ?> times. It will cost you <?= $row["ProductsPrice"] * $value ?>€</li>
 
-                <form method="POST">
-                    <input type="hidden" name="ProductToDelete" value="<?= $row["PID"] ?>">
-                    <input type="submit" name="removeItem" value="Remove">
-                </form>
+                    <form method="POST">
+                        <input type="hidden" name="ProductToDelete" value="<?= $row["PID"] ?>">
+                        <input type="submit" name="removeItem" value="Remove">
+                    </form>
                 </div>
             <?php
                 $TotalPrice += $row["ProductsPrice"] * $value;
@@ -65,6 +91,10 @@
             ?>
             <h2>You have to pay <?= $TotalPrice ?> €</h2>
         </ul>
+
+        <form method="POST">
+            <input type="submit" name="BuyAll" value="Finish Order">
+        </form>
     </section>
 </body>
 

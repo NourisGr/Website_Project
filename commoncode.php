@@ -13,16 +13,19 @@
 
     $connection = new mysqli($host,$username,$psw,$database,$portNo);
 
-    if (isset($_POST["User"])){
+    if (isset($_POST["User"]))
+    {
         $sqlSearchUser = $connection->prepare("SELECT * from USERS where UserName = ?");
         $sqlSearchUser->bind_param("s",$_POST["User"]);
         $sqlSearchUser->execute();
         $result = $sqlSearchUser->get_result();
         if ($result->num_rows>0)
         {
+            $row = $result->fetch_assoc();
             $_SESSION["UserLoggedIn"] = true;
             $_SESSION["ShoppingCart"] = [];
             $_SESSION["User"] = $_POST["User"];
+            $_SESSION["UserId"] = $row["UserId"];
         }
         else
         {
