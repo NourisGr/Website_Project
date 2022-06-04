@@ -16,7 +16,7 @@
 
     <?php
     include_once("commoncode.php");
-    navbar("products", "productsGR.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "Register & Login "], "")
+    navbar("products", "productsGR.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ","ShopingCart", "Register "], "")
 
     ?>
 

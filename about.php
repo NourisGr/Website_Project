@@ -11,10 +11,11 @@
 </head>
 
 <body>
-<?php 
-      include_once("commoncode.php");
-      navbar("about","aboutGR.php", ["Home ","About ","Contact ","Email ","Phone ","Address ","Products ","Register & Login "],"")?>
-
+<?php
+    include_once("commoncode.php");
+        navbar("ShopingCart", "productsGR.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Register "], "")
+    ?>
+    
     <h1>HTSTA & WSERS</h1>
     <ul class="aboutetext">
         <li>In HTSTA class we are learning how to build a WebSite usning HTML and CSS.</li>

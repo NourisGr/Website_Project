@@ -9,9 +9,10 @@
     <title>Home Page</title>
 </head>
 <body>
-<?php 
-      include_once("commoncode.php");
-      navbar("index","indexGR.php", ["Home ","About ","Contact ","Email ","Phone ","Address ","Products ","Register & Login "],"")?>
+<?php
+    include_once("commoncode.php");
+        navbar("ShopingCart", "productsGR.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Register "], "")
+    ?>
 
 
 <?php 

@@ -9,10 +9,10 @@
     <title>About</title>
 </head>
 <body>
-<?php 
-      include_once("commoncode.php");
-      navbar("email","emailGR.php", ["Home ","About ","Contact ","Email ","Phone ","Address ","Products ","Register "],"")?>
-
+<?php
+    include_once("commoncode.php");
+        navbar("ShopingCart", "productsGR.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Register "], "")
+    ?>
 <img src="include/images/contactus.png" class="contactimg" alt="contact us">
 <div class="contactpage">
         <h2>Our Email is</h2>

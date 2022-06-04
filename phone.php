@@ -11,8 +11,8 @@
 <body>
 <?php 
       include_once("commoncode.php");
-      navbar("phone","phoneGR.php", ["Home ","About ","Contact ","Email ","Phone ","Address ","Products ","Register "],"")?>
-
+      navbar("products", "productsGR.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ","ShopingCart", "Register "], "")
+?>
 
 <img src="include/images/contactus.png" class="contactimg" alt="contact us">
     <div class="contactpage">
