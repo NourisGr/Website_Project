@@ -11,6 +11,10 @@
     </Style>
 </head>
 <body>
-    
+<?php
+    include_once("navbar.php");
+    navbar("register_login", "register_loginGR.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "Register & Login "], "")
+
+    ?>
 </body>
 </html>

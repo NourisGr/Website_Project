@@ -11,7 +11,7 @@
 <body>
 <?php 
       include_once("navbar.php");
-      navbar("index","indexGR.php", ["Home ","About ","Contact ","Email ","Phone ","Address ","Products ","Register "],"")?>
+      navbar("index","indexGR.php", ["Home ","About ","Contact ","Email ","Phone ","Address ","Products ","Register & Login "],"")?>
 
 
 <?php 

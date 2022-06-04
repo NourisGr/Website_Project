@@ -13,7 +13,7 @@
 <body>
 <?php 
       include_once("navbar.php");
-      navbar("about","aboutGR.php", ["Home ","About ","Contact ","Email ","Phone ","Address ","Products ","Register "],"")?>
+      navbar("about","aboutGR.php", ["Home ","About ","Contact ","Email ","Phone ","Address ","Products ","Register & Login "],"")?>
 
     <h1>HTSTA & WSERS</h1>
     <ul class="aboutetext">
