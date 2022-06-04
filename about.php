@@ -12,7 +12,7 @@
 
 <body>
 <?php 
-      include_once("navbar.php");
+      include_once("commoncode.php");
       navbar("about","aboutGR.php", ["Home ","About ","Contact ","Email ","Phone ","Address ","Products ","Register & Login "],"")?>
 
     <h1>HTSTA & WSERS</h1>

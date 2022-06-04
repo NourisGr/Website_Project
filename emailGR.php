@@ -10,7 +10,7 @@
 </head>
 <body>
 <?php 
-      include_once("navbar.php");
+      include_once("commoncode.php");
       navbar("emailGR","email.php", ["Αρχική","Σχετικά","Τρόποι Επικοινωνιάς","Email","Κινήτο","Διεύθυνση","Προϊόντα","Εγγραφή"],"GR")?>
 
 <img src="include/images/contactus.png" class="contactimg" alt="contact us">

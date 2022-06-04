@@ -15,7 +15,7 @@
 <body>
 
     <?php
-    include_once("navbar.php");
+    include_once("commoncode.php");
     navbar("products", "productsGR.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "Register & Login "], "")
 
     ?>
@@ -23,7 +23,6 @@
     <section class="section10">
 
         <?php
-        include_once("commoncode.php");
 
         if (isset($_POST["BuyProduct"])) {
 

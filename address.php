@@ -10,7 +10,7 @@
 </head>
 <body>
 <?php 
-      include_once("navbar.php");
+      include_once("commoncode.php");
       navbar("address","addressGR.php", ["Home ","About ","Contact ","Email ","Phone ","Address ","Products ","Register "],"")?>
 
 <img src="include/images/contactus.png" class="contactimg" alt="contact us">

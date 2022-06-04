@@ -10,13 +10,12 @@
 </head>
 <body>
 <?php 
-      include_once("navbar.php");
+      include_once("commoncode.php");
       navbar("index","indexGR.php", ["Home ","About ","Contact ","Email ","Phone ","Address ","Products ","Register & Login "],"")?>
 
 
 <?php 
-session_start();
-$_SESSION['Userloged']=false
+
 ?>
 
     <h1>Welcome!</h1>

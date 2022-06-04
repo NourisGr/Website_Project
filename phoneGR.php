@@ -10,7 +10,7 @@
 </head>
 <body>
 <?php 
-      include_once("navbar.php");
+      include_once("commoncode.php");
       navbar("phoneGR","phone.php", ["Αρχική","Σχετικά","Τρόποι Επικοινωνιάς","Email","Κινήτο","Διεύθυνση","Προϊόντα","Εγγραφή"],"GR")
 ?>
 

@@ -15,7 +15,7 @@
 <body>
 
     <?php
-    include_once("navbar.php");
+    include_once("commoncode.php");
     navbar("productsGR", "products.php", ["Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Εγγραφή & Σύνδεση "], "GR")
     ?>
 

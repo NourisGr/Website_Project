@@ -10,7 +10,7 @@
 </head>
 <body>
 <?php 
-      include_once("navbar.php");
+      include_once("commoncode.php");
       navbar("phone","phoneGR.php", ["Home ","About ","Contact ","Email ","Phone ","Address ","Products ","Register "],"")?>
 
 
