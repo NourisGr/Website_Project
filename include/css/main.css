@@ -73,11 +73,12 @@ h1 {
 }
 
 h2 {
+    
 text-align: center;
 }
 
-.malaka{
-    position: absolute;
+.malaka {
+    position: fixed;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -86,7 +87,18 @@ text-align: center;
     color: aquamarine;
 }
 
+.logoutbutton {
+    position: fixed;
+    right: 45%;
+    transform: translateX(-50%);
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: aquamarine;
+}
+
 h4 {
+    
     text-align: center;
     color: blue;
     font-family: sans-serif;
@@ -212,29 +224,7 @@ h5 {
   and (orientation: landscape) { 
   }
 
-  .dropdownregister {
-    display: none;
-    background-color: #0000A5;
-    position: absolute;
-    border-radius: 4px;
-}
 
-.links:hover .dropdownregister{
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-}
-
-.linksregister {
-    position: relative;
-    text-align: right;
-    float: right;
-}
-
-.section10{
-    position: relative;
-    top: 85px;
-}
 
 
 /*Shopping Cart*/
@@ -244,11 +234,8 @@ h5 {
 	font-family: 'Montserrat', sans-serif;
 }
 
-
-
 .payment-form .content{
 	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
-;
 }
 
 .payment-form .block-heading{
@@ -351,7 +338,4 @@ h5 {
  	margin-left: 10px;
     margin-right: 10px;
     margin-top: 5px;
-}
-
-
 }

@@ -7,11 +7,30 @@ function navbar($activePage, $URL, $buttontext, $lang)
 
     <div class="navbar">
 
-<?php 
-    if ($_SESSION["UserLoggedIn"]) {
-        print("<div class='malaka'>Welcome " . $_SESSION["User"]."</div>");
-    }
-?>
+        <?php
+        if ($_SESSION["UserLoggedIn"]) {
+            print("<div class='malaka'>Welcome " . $_SESSION["User"] . "</div>");
+        }
+
+        if ($_SESSION["UserLoggedIn"]) {
+
+        ?>
+            <form METHOD="POST" class="logoutbutton">
+                <input type="submit" name="Logout" value="Logout">
+            </form>
+
+        <?php
+        } else {
+        ?>
+
+            <form METHOD="POST" class="malaka">
+                <input type="text" name="User">
+                <input type="submit" name="Login" value="Login">
+            </form>
+
+        <?php
+        }
+        ?>
 
         <a href="index<?= $lang ?>.php" <?php if ($activePage == "index") {
                                             print("class= 'active'");
@@ -45,8 +64,8 @@ function navbar($activePage, $URL, $buttontext, $lang)
         if ($_SESSION["UserLoggedIn"]) {
         ?>
             <a href="shopingcart<?= $lang ?>.php" <?php if ($activePage == "ShopingCart") {
-                                                print("class= 'active'");
-                                            } ?>><?= $buttontext[7] ?> <i class="fa fa-fw fa-shopping-basket"></i></a>
+                                                        print("class= 'active'");
+                                                    } ?>><?= $buttontext[7] ?> <i class="fa fa-fw fa-shopping-basket"></i></a>
         <?php
         }
         ?>
@@ -103,26 +122,5 @@ if (isset($_POST["Logout"])) {
     session_destroy();
     header("Refresh:0");
     die();
-}
-
-
-
-if ($_SESSION["UserLoggedIn"]) {
-
-?>
-    <form METHOD="POST" class="section10">
-        <input type="submit" name="Logout" value="Logout">
-    </form>
-
-<?php
-} else {
-?>
-
-    <form METHOD="POST" class="section10">
-        <input type="text" name="User">
-        <input type="submit" name="Login" value="Login">
-    </form>
-
-<?php
 }
 ?>
