@@ -1,13 +1,12 @@
 # Website_Project
 Website_Project for wsers2
 
-
+Questions: 
+    -About language in commoncode
 
 Pending:
-
-Style Shoping Cart
-
-
+    -Style login session
+    -Whem login user must type also the password (some sql staement sh*t)
 
 Done:
 03/06/2022
@@ -21,5 +20,9 @@ Done:
     -Correction for links.
     -When user is logout ShoppingCart button disapear.
 05/06/2022
-    -Login input moved to navbar
-    -Logout button moved to navbar
+    -Login input moved to navbar.
+    -Logout button moved to navbar.
+06/06/2022
+    -Insert Users and password to the database from php.
+    -Create login page link and link it with registare page.
+    -Moved session User to login page.

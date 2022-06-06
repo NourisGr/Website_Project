@@ -60,7 +60,7 @@
 
                         <form method="POST">
                             <input type="hidden" name="BuyProduct" value="<?= $row["PID"] ?>">
-                            <input type="submit" value="BUY">
+                            <input type="submit" value="BUY" class="buybutton">
                         </form>
 
                 </div>

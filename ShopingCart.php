@@ -23,40 +23,6 @@
 
     <section class="section10">
 
-        <?php
-
-        if (isset($_POST["BuyAll"])) {
-            if (count($_SESSION["ShoppingCart"]) == 0) {
-                print "<script>alert('You cannot place empty orders .')</script>";
-            } else {
-                $uniqueOrderId = time() . $_SESSION["User"];
-                // start inserting
-                $sqlInsert = $connection->prepare("INSERT into Orders(OrderId,UserId) VALUES(?,?)");
-                $sqlInsert->bind_param("si", $uniqueOrderId, $_SESSION["UserId"]);
-                $sqlInsert->execute();
-
-                // insert items in to the list table
-
-                foreach ($_SESSION["ShoppingCart"] as $key => $value) {
-                    $sqlInsert = $connection->prepare("INSERT into List(PID,NumberOfItems,OrderId) VALUES(?,?,?)");
-                    $sqlInsert->bind_param("iis", $key, $value, $uniqueOrderId);
-                    $sqlInsert->execute();
-                }
-
-                $_SESSION["ShoppingCart"]  = [];
-            }
-        }
-
-        if (!$_SESSION["UserLoggedIn"]) {
-            header("location: products.php");
-            die;
-        }
-
-        if (isset($_POST["ProductToDelete"])) {
-            unset($_SESSION["ShoppingCart"][$_POST["ProductToDelete"]]);
-        }
-
-        ?>
         <div>
             <h1>Payment</h1>
         </div>
@@ -82,7 +48,7 @@
                                 <span class="price"><?= $row["ProductsPrice"] * $value ?>€</span>
                                 <form method="POST">
                                     <input type="hidden" name="ProductToDelete" value="<?= $row["PID"] ?>">
-                                    <input type="submit" name="removeItem" value="Remove">
+                                    <input type="submit" name="removeItem" value="Remove" >
                                 </form>
                             </div>
 

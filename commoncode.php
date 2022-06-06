@@ -7,31 +7,6 @@ function navbar($activePage, $URL, $buttontext, $lang)
 
     <div class="navbar">
 
-        <?php
-        if ($_SESSION["UserLoggedIn"]) {
-            print("<div class='malaka'>Welcome " . $_SESSION["User"] . "</div>");
-        }
-
-        if ($_SESSION["UserLoggedIn"]) {
-
-        ?>
-            <form METHOD="POST" class="logoutbutton">
-                <input type="submit" name="Logout" value="Logout">
-            </form>
-
-        <?php
-        } else {
-        ?>
-
-            <form METHOD="POST" class="malaka">
-                <input type="text" name="User">
-                <input type="submit" name="Login" value="Login">
-            </form>
-
-        <?php
-        }
-        ?>
-
         <a href="index<?= $lang ?>.php" <?php if ($activePage == "index") {
                                             print("class= 'active'");
                                         } ?>><?= $buttontext[0] ?> <i class="fa fa-fw fa-home"></i></a>
@@ -113,7 +88,7 @@ if (isset($_POST["User"])) {
         $_SESSION["User"] = $_POST["User"];
         $_SESSION["UserId"] = $row["UserId"];
     } else {
-        print("Your name is not in our DB");
+        print "<script>alert('Your name is not in our DB.')</script>";
     }
 }
 
@@ -122,5 +97,53 @@ if (isset($_POST["Logout"])) {
     session_destroy();
     header("Refresh:0");
     die();
+}
+
+
+
+mysqli_report(MYSQLI_REPORT_OFF);
+if (isset($_POST["UserName"], $_POST["psw"], $_POST["pswver"])) {
+    if ($_POST["psw"] == $_POST["pswver"]) {
+        $sqlInsert = $connection->prepare("INSERT INTO USERS(UserName,UserPassword) VALUES(?,?)");
+        $sqlInsert->bind_param("ss", $_POST["UserName"], $_POST["psw"]);
+        if (!$sqlInsert->execute()) {
+            print("<div class='frasch'>User already exists!</div>");
+        } else {
+            print("You have been registered successfully");
+        }
+    } else {
+        print("Password don`t match");
+    }
+}
+
+if (isset($_POST["BuyAll"])) {
+    if (count($_SESSION["ShoppingCart"]) == 0) {
+        print "<script>alert('You cannot place empty orders .')</script>";
+    } else {
+        $uniqueOrderId = time() . $_SESSION["User"];
+        // start inserting
+        $sqlInsert = $connection->prepare("INSERT into Orders(OrderId,UserId) VALUES(?,?)");
+        $sqlInsert->bind_param("si", $uniqueOrderId, $_SESSION["UserId"]);
+        $sqlInsert->execute();
+
+        // insert items in to the list table
+
+        foreach ($_SESSION["ShoppingCart"] as $key => $value) {
+            $sqlInsert = $connection->prepare("INSERT into List(PID,NumberOfItems,OrderId) VALUES(?,?,?)");
+            $sqlInsert->bind_param("iis", $key, $value, $uniqueOrderId);
+            $sqlInsert->execute();
+        }
+
+        $_SESSION["ShoppingCart"]  = [];
+    }
+
+    if (!$_SESSION["UserLoggedIn"]) {
+        header("location: products.php");
+        die;
+    }
+
+    if (isset($_POST["ProductToDelete"])) {
+        unset($_SESSION["ShoppingCart"][$_POST["ProductToDelete"]]);
+    }
 }
 ?>

@@ -6,13 +6,9 @@ use shop;
 create table Users(
     UserId int not NULL AUTO_INCREMENT,
     UserName VARCHAR(30) UNIQUE,
+    UserPassword varchar(255),
     PRIMARY KEY (UserId)
 );
-
-
-INSERT into Users(UserName) VALUES ("Dan");
-INSERT into Users(UserName) VALUES ("Franchesco");
-INSERT into Users(UserName) VALUES ("Fanouris");
 
 
 CREATE TABLE Products (
