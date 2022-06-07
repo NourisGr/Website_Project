@@ -2,16 +2,24 @@
 function navbar($activePage, $URL, $buttontext, $lang)
 
 {
-
 ?>
 
     <div class="navbar">
-
-        <a href="index<?= $lang ?>.php" <?php if ($activePage == "index") {
+        <?php
+        if ($_SESSION["UserLoggedIn"]) {
+            print("<div class='malaka'>Welcome " . $_SESSION["User"] . "</div>");
+        ?>
+            <form METHOD="POST" class="logoutbutton">
+                <input type="submit" name="Logout" value="Logout">
+            </form>
+        <?php
+        }
+        ?>
+        <a href="index.php" <?php if ($activePage == "index") {
                                             print("class= 'active'");
                                         } ?>><?= $buttontext[0] ?> <i class="fa fa-fw fa-home"></i></a>
 
-        <a href="about<?= $lang ?>.php" <?php if ($activePage == "about") {
+        <a href="about.php" <?php if ($activePage == "about") {
                                             print("class= 'active'");
                                         } ?>><?= $buttontext[1] ?> <i class="fa fa-fw fa-info"></i></a>
 
@@ -19,42 +27,42 @@ function navbar($activePage, $URL, $buttontext, $lang)
         <div class="links">
             <a href="#"><?= $buttontext[2] ?> <i class="fa fa-fw fa-envelope"></i></a>
             <div class="dropdown">
-                <a href="Email<?= $lang ?>.php" <?php if ($activePage == "email") {
+                <a href="Email.php" <?php if ($activePage == "email") {
                                                     print("class= 'active'");
                                                 } ?>><?= $buttontext[3] ?> <i class="fa-regular fa-envelope"></i></a>
 
-                <a href="phone<?= $lang ?>.php" <?php if ($activePage == "phone") {
+                <a href="phone.php" <?php if ($activePage == "phone") {
                                                     print("class= 'active'");
                                                 } ?>><?= $buttontext[4] ?> <i class="fa-solid fa-phone"></i></a>
 
-                <a href="Address<?= $lang ?>.php" <?php if ($activePage == "address") {
+                <a href="Address.php" <?php if ($activePage == "address") {
                                                         print("class= 'active'");
                                                     } ?>><?= $buttontext[5] ?> <i class="fa fa-map-marker"></i></a>
             </div>
         </div>
-        <a href="products<?= $lang ?>.php" <?php if ($activePage == "products") {
+        <a href="products.php" <?php if ($activePage == "products") {
                                                 print("class= 'active'");
                                             } ?>><?= $buttontext[6] ?> <i class="fa-solid fa-shop"></i></a>
         <?php
         if ($_SESSION["UserLoggedIn"]) {
         ?>
-            <a href="shopingcart<?= $lang ?>.php" <?php if ($activePage == "ShopingCart") {
+            <a href="shopingcart.php" <?php if ($activePage == "ShopingCart") {
                                                         print("class= 'active'");
                                                     } ?>><?= $buttontext[7] ?> <i class="fa fa-fw fa-shopping-basket"></i></a>
         <?php
         }
         ?>
 
-        <a href="register_login<?= $lang ?>.php" <?php if ($activePage == "register_login") {
+        <a href="register_login.php" <?php if ($activePage == "register_login") {
                                                         print("class= 'active'");
                                                     } ?>><?= $buttontext[8] ?><i class="fa-solid fa-registered"></i></a>
 
         <?php
-        if ($lang == "") {
+        if ($lang == "EN") {
         ?>
-            <a href="<?= $URL ?>"> <i class="fa fa-language"> </i> <img src="include/images/FlagofGreece.png" class="imgsize" alt="GR"></a>
+            <a href="<?= $URL ?>?lang=GR"> <i class="fa fa-language"> </i> <img src="include/images/FlagofGreece.png" class="imgsize" alt="GR"></a>
         <?php } else { ?>
-            <a href="<?= $URL ?>"><i class="fa fa-language"></i><img src="include/images/FlagofBritain.png" class="imgsize" alt="UK"></a>
+            <a href="<?= $URL ?>?lang=EN"><i class="fa fa-language"></i><img src="include/images/FlagofBritain.png" class="imgsize" alt="UK"></a>
         <?php } ?>
 
     </div>
@@ -67,6 +75,12 @@ session_start();
 if (!isset($_SESSION["UserLoggedIn"])) {
     $_SESSION["UserLoggedIn"] = false;
 }
+if(!isset($_SESSION["Language"])){
+    $_SESSION["Language"] = "EN";
+}
+if(isset($_GET["lang"])){
+    $_SESSION["Language"] = $_GET["lang"];
+}
 
 $host = "localhost";
 $username = "root";
@@ -76,6 +90,8 @@ $portNo = 3306;
 
 $connection = new mysqli($host, $username, $psw, $database, $portNo);
 
+
+
 if (isset($_POST["User"])) {
     $sqlSearchUser = $connection->prepare("SELECT * from USERS where UserName = ?");
     $sqlSearchUser->bind_param("s", $_POST["User"]);
@@ -83,10 +99,15 @@ if (isset($_POST["User"])) {
     $result = $sqlSearchUser->get_result();
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $_SESSION["UserLoggedIn"] = true;
-        $_SESSION["ShoppingCart"] = [];
-        $_SESSION["User"] = $_POST["User"];
-        $_SESSION["UserId"] = $row["UserId"];
+        if ($_POST["psw"] == $row["UserPassword"]) {
+            $_SESSION["UserLoggedIn"] = true;
+            $_SESSION["ShoppingCart"] = [];
+            $_SESSION["User"] = $_POST["User"];
+            $_SESSION["UserId"] = $row["UserId"];
+        } else {
+            //if $_SESSION["Language"]
+            print "<script>alert('Wrong Password!!!.')</script>";
+        }
     } else {
         print "<script>alert('Your name is not in our DB.')</script>";
     }
@@ -99,7 +120,7 @@ if (isset($_POST["Logout"])) {
     die();
 }
 
-
+/*INSERTING USERS WITH PASSWORD INTO THE DATABASE*/
 
 mysqli_report(MYSQLI_REPORT_OFF);
 if (isset($_POST["UserName"], $_POST["psw"], $_POST["pswver"])) {
@@ -115,6 +136,8 @@ if (isset($_POST["UserName"], $_POST["psw"], $_POST["pswver"])) {
         print("Password don`t match");
     }
 }
+
+
 
 if (isset($_POST["BuyAll"])) {
     if (count($_SESSION["ShoppingCart"]) == 0) {

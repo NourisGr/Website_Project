@@ -17,40 +17,30 @@
     include_once("commoncode.php");
     navbar("register_login", "register_loginGR.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Register "], "")
     ?>
-    <?php
-    if ($_SESSION["UserLoggedIn"]) {
-        print("<div class='malaka'>Welcome " . $_SESSION["User"] . "</div>");
-    }
+  
+    <h1>Login to make an oreder</h1>
 
+    <h2></h2>
+    <div>
+    <?php
     if ($_SESSION["UserLoggedIn"]) {
 
     ?>
-        <form METHOD="POST" class="logoutbutton">
-            <input type="submit" name="Logout" value="Logout">
-        </form>
 
     <?php
-    } else {
+    } 
+    else {
     ?>
-        <form METHOD="POST" class="malaka">
-            <input type="text" name="User">
+        <form METHOD="POST" >
+            <input type="text" name="User" placeholder="User Name">
+            <input type="password" name="psw" placeholder="Password">
             <input type="submit" name="Login" value="Login">
         </form>
 
     <?php
     }
     ?>
-    <h1>Login to make an oreder</h1>
-
-    <h2></h2>
-
-
-    <form method="POST">
-        <input type="text" name="UserName" placeholder="User Name">
-        <input type="password" name="psw" placeholder="Password">
-        <input type="submit" name="Go" value="login">
-    </form>
-
+</div>
     <p>Click <a href="register_login.php">Here</a> to register</p>
 </body>
 

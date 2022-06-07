@@ -16,7 +16,7 @@
 
     <?php
     include_once("commoncode.php");
-    navbar("productsGR", "products.php", ["Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Εγγραφή & Σύνδεση "], "GR")
+    navbar("productsGR", "products.php", ["Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Καρτέλα","Εγγραφή & Σύνδεση "], "GR")
     ?>
 
     <section class="section10">

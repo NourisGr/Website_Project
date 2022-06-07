@@ -11,19 +11,37 @@
 </head>
 
 <body>
-<?php
+    <?php
     include_once("commoncode.php");
-        navbar("ShopingCart", "productsGR.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Register "], "")
+    if ($_SESSION["Language"] == "EN") {
+        navbar("about", "about.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Register "], "EN");
     ?>
-    
-    <h1>HTSTA & WSERS</h1>
-    <ul class="aboutetext">
-        <li>In HTSTA class we are learning how to build a WebSite usning HTML and CSS.</li>
-        <li>This WebSite is our project for HTSTA and has to be done until 21 of April 2020.</li>
-        <li>Project continues in course WSERS 2021. The goal this year is to rebuild the website using php & to create a full functional product page using only php code.</li>
-    </ul>
-    <img src="include/images/html.gif" class="aboutimg" alt="html">
-    <img src="include/images/php.gif" class="aboutimg" alt="html">
+        <h1>HTSTA & WSERS</h1>
+        <ul class="aboutetext">
+            <li>In HTSTA class we are learning how to build a WebSite usning HTML and CSS.</li>
+            <li>This WebSite is our project for HTSTA and has to be done until 21 of April 2020.</li>
+            <li>Project continues in course WSERS 2021. The goal this year is to rebuild the website using php & to create a full functional product page using only php code.</li>
+        </ul>
+        <img src="include/images/html.gif" class="aboutimg" alt="html">
+        <img src="include/images/php.gif" class="aboutimg" alt="html">
+    <?php
+    } else {
+        navbar("about", "about.php", ["Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Καρτέλα", "Εγγραφή"], "GR");
+    ?>
+        <h1>HTSTA & WSERS</h1>
+
+        <ul class="aboutetext">
+            <li>Στην τάξη HTSTA μαθαίνουμε πώς να χτίζουμε έναν Ιστότοπο χρησιμοποιώντας HTML και CSS.</li>
+            <li>Αυτός ο ιστότοπος είναι το έργο μας για το HTSTA και πρέπει να εκτελεστεί έως τις 21 Απριλίου 2020.</li>
+            <li>Το έργο συνεχίζεται στην πορεία του WSERS 2021. Ο στόχος φέτος είναι να ξαναχτίσουμε τον ιστότοπο χρησιμοποιώντας php και να δημιουργήσουμε μια πλήρη λειτουργική σελίδα προϊόντος χρησιμοποιώντας μόνο κώδικα php.</li>
+        </ul>
+        <img src="include/images/html.gif" class="aboutimg" alt="html">
+        <img src="include/images/php.gif" class="aboutimg" alt="html">
+    <?php
+    }
+    ?>
+
+
 </body>
 
 </html>

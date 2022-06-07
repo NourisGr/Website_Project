@@ -1,12 +1,13 @@
 # Website_Project
 Website_Project for wsers2
 
-Questions: 
-    -About language in commoncode
+Questions:
+
 
 Pending:
     -Style login session
-    -Whem login user must type also the password (some sql staement sh*t)
+    -Finish with styling the greek version of products  
+    -Upcoming changes for products page due to the delete of GR files (Look changes at day 07/06/2022)
 
 Done:
 03/06/2022
@@ -26,3 +27,7 @@ Done:
     -Insert Users and password to the database from php.
     -Create login page link and link it with registare page.
     -Moved session User to login page.
+07/06/2022
+    -User must type also psw to login.
+    -GR files deleted, now we have $_SESSIONS insted.
+    Changes to commone code at the navbar part (delete of <?.php $lang ?>)

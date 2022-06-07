@@ -36,7 +36,6 @@ CREATE TABLE Languages(
 INSERT INTO Languages (LanguageName) VALUES("English");
 INSERT INTO Languages (languageName) VALUES("Greek");
 
-
 CREATE TABLE Descriptions(
     DescID INT NOT NULL AUTO_INCREMENT,
     PrdsName VARCHAR(200),
