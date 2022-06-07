@@ -60,9 +60,9 @@ function navbar($activePage, $URL, $buttontext, $lang)
         <?php
         if ($lang == "EN") {
         ?>
-            <a href="<?= $URL ?>?lang=GR"> <i class="fa fa-language"> </i> <img src="include/images/FlagofGreece.png" class="imgsize" alt="GR"></a>
+            <a href="<?= $URL ?>?lang=GR"> <i class="fa fa-language"></i> <img src="include/images/FlagofGreece.png" class="imgsize" alt="GR"></a>
         <?php } else { ?>
-            <a href="<?= $URL ?>?lang=EN"><i class="fa fa-language"></i><img src="include/images/FlagofBritain.png" class="imgsize" alt="UK"></a>
+            <a href="<?= $URL ?>?lang=EN"><i class="fa fa-language"></i> <img src="include/images/FlagofBritain.png" class="imgsize" alt="UK"></a>
         <?php } ?>
 
     </div>
