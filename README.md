@@ -4,11 +4,9 @@ Website_Project for wsers2
 Questions:
 
 
-Pending:
-    -Style login session
-    -Finish with styling the greek version of products  
-    -Upcoming changes for products page due to the delete of GR files (Look changes at day 07/06/2022)
-
+Pending:  
+    -Apply admin page code from test file to website files to add products and view orders.
+    -create greek version for login and register pages.
 Done:
 03/06/2022
     -Icons Updated to version 6.1.1 also new link, Delete button for products added to shoping cart.
@@ -30,4 +28,7 @@ Done:
 07/06/2022
     -User must type also psw to login.
     -GR files deleted, now we have $_SESSIONS insted.
-    Changes to commone code at the navbar part (delete of <?.php $lang ?>)
+    -Changes to commone code at the navbar part (delete of <?.php $lang ?>).
+29/06/2022
+    -Bootstrap added to the website.
+    -login and register pages working coreect.
