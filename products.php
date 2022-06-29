@@ -16,8 +16,13 @@
 
     <?php
     include_once("commoncode.php");
-    navbar("products", "productsGR.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ","ShopingCart", "Register "], "")
-
+    if ($_SESSION["Language"] == "EN") {
+    navbar("products", "products.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ","ShopingCart", "Register "], "EN");
+    }
+    
+    else {
+        navbar("products", "products.php", ["Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Καρτέλα", "Εγγραφή "], "GR");
+    }
     ?>
 
     <section class="section10">
@@ -43,8 +48,15 @@
 
 
         <?php
-
-            $sqlProducts = $connection->prepare("SELECT * From Products join Descriptions using (PID)  where LID=1");
+            $glossa = "";
+            if ($_SESSION["Language"] == "EN") {
+                $glossa = 1;
+            } else {
+                $glossa = 2;
+            }
+            
+            $sqlProducts = $connection->prepare("SELECT * From Products join Descriptions using (PID)  where LID=?");
+            $sqlProducts -> bind_param("i",$glossa);
             $sqlProducts->execute();
             $result = $sqlProducts->get_result();
             while ($row = $result->fetch_assoc()) 

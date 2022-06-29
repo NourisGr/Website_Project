@@ -4,14 +4,17 @@ function navbar($activePage, $URL, $buttontext, $lang)
 {
 ?>
 
-    <div class="navbar">
+    <div class="navbartwo">
         <?php
         if ($_SESSION["UserLoggedIn"]) {
             print("<div class='malaka'>Welcome " . $_SESSION["User"] . "</div>");
         ?>
+
             <form METHOD="POST" class="logoutbutton">
-                <input type="submit" name="Logout" value="Logout">
+                <input type="submit"  name="Logout" value="Logout" class="btn btn-primary btn-sm">
             </form>
+
+            
         <?php
         }
         ?>
@@ -24,7 +27,7 @@ function navbar($activePage, $URL, $buttontext, $lang)
                                         } ?>><?= $buttontext[1] ?> <i class="fa fa-fw fa-info"></i></a>
 
 
-        <div class="links">
+        <div class="linkstwo">
             <a href="#"><?= $buttontext[2] ?> <i class="fa fa-fw fa-envelope"></i></a>
             <div class="dropdown">
                 <a href="Email.php" <?php if ($activePage == "email") {
@@ -128,18 +131,24 @@ if (isset($_POST["UserName"], $_POST["psw"], $_POST["pswver"])) {
         $sqlInsert = $connection->prepare("INSERT INTO USERS(UserName,UserPassword) VALUES(?,?)");
         $sqlInsert->bind_param("ss", $_POST["UserName"], $_POST["psw"]);
         if (!$sqlInsert->execute()) {
-            print("<div class='frasch'>User already exists!</div>");
+            print("<script>alert('User already exists!')</script>");
         } else {
-            print("You have been registered successfully");
+            print("<script>alert('You have been registered successfully!!!')</script>");
         }
     } else {
-        print("Password don`t match");
+        print("<script>alert('Password don`t match!!!')</script>");
     }
 }
 
 
 
 if (isset($_POST["BuyAll"])) {
+
+    if (!$_SESSION["UserLoggedIn"]) {
+        header("location: products.php");
+        die;
+    }
+
     if (count($_SESSION["ShoppingCart"]) == 0) {
         print "<script>alert('You cannot place empty orders .')</script>";
     } else {
@@ -158,12 +167,10 @@ if (isset($_POST["BuyAll"])) {
         }
 
         $_SESSION["ShoppingCart"]  = [];
+        print "<script>alert('Your Order has been sent!!')</script>";
     }
 
-    if (!$_SESSION["UserLoggedIn"]) {
-        header("location: products.php");
-        die;
-    }
+
 
     if (isset($_POST["ProductToDelete"])) {
         unset($_SESSION["ShoppingCart"][$_POST["ProductToDelete"]]);
