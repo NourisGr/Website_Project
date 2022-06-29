@@ -71,7 +71,7 @@ Create TABLE Orders(
 Create TABLE List(
     ListItem int NOT NULL AUTO_INCREMENT,
     PID INT NOT NULL,
-    OrderId varchar(200) NOT NULL,
+    OrderId varchar(25) NOT NULL,
     NumberOfItems int NOT NULL,
     
     Foreign key(PID) REFERENCES Products(PID),
