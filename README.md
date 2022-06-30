@@ -6,7 +6,6 @@ Questions:
 
 Pending:  
     -Apply admin page code from test file to website files to add products and view orders.
-    -create greek version for login and register pages.
 Done:
 03/06/2022
     -Icons Updated to version 6.1.1 also new link, Delete button for products added to shoping cart.
@@ -32,3 +31,7 @@ Done:
 29/06/2022
     -Bootstrap added to the website.
     -login and register pages working coreect.
+30/06/2022
+    -Greek Version for register and login page ready
+    - When user loged in, is unable to reach register or login page, in case he tries to reach by changing the link he is automatically redirected to index.php
+    -corrected small bug when user is not loged in, he can not reach shoppingcart and he is redirected to products page.

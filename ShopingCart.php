@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +21,12 @@
     include_once("commoncode.php");
         navbar("ShopingCart", "productsGR.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Register "], "")
     ?>
-
+<?php
+if ($_SESSION["UserLoggedIn"] == false) {
+        header("location: products.php");
+        die();
+    }
+?>
     <section class="section10">
 
         <div>

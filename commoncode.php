@@ -11,54 +11,54 @@ function navbar($activePage, $URL, $buttontext, $lang)
         ?>
 
             <form METHOD="POST" class="logoutbutton">
-                <input type="submit"  name="Logout" value="Logout" class="btn btn-primary btn-sm">
+                <input type="submit" name="Logout" value="Logout" class="btn btn-primary btn-sm">
             </form>
 
-            
+
         <?php
         }
         ?>
         <a href="index.php" <?php if ($activePage == "index") {
-                                            print("class= 'active'");
-                                        } ?>><?= $buttontext[0] ?> <i class="fa fa-fw fa-home"></i></a>
+                                print("class= 'active'");
+                            } ?>><?= $buttontext[0] ?> <i class="fa fa-fw fa-home"></i></a>
 
         <a href="about.php" <?php if ($activePage == "about") {
-                                            print("class= 'active'");
-                                        } ?>><?= $buttontext[1] ?> <i class="fa fa-fw fa-info"></i></a>
+                                print("class= 'active'");
+                            } ?>><?= $buttontext[1] ?> <i class="fa fa-fw fa-info"></i></a>
 
 
         <div class="linkstwo">
             <a href="#"><?= $buttontext[2] ?> <i class="fa fa-fw fa-envelope"></i></a>
             <div class="dropdown">
                 <a href="Email.php" <?php if ($activePage == "email") {
-                                                    print("class= 'active'");
-                                                } ?>><?= $buttontext[3] ?> <i class="fa-regular fa-envelope"></i></a>
+                                        print("class= 'active'");
+                                    } ?>><?= $buttontext[3] ?> <i class="fa-regular fa-envelope"></i></a>
 
                 <a href="phone.php" <?php if ($activePage == "phone") {
-                                                    print("class= 'active'");
-                                                } ?>><?= $buttontext[4] ?> <i class="fa-solid fa-phone"></i></a>
+                                        print("class= 'active'");
+                                    } ?>><?= $buttontext[4] ?> <i class="fa-solid fa-phone"></i></a>
 
                 <a href="Address.php" <?php if ($activePage == "address") {
-                                                        print("class= 'active'");
-                                                    } ?>><?= $buttontext[5] ?> <i class="fa fa-map-marker"></i></a>
+                                            print("class= 'active'");
+                                        } ?>><?= $buttontext[5] ?> <i class="fa fa-map-marker"></i></a>
             </div>
         </div>
         <a href="products.php" <?php if ($activePage == "products") {
-                                                print("class= 'active'");
-                                            } ?>><?= $buttontext[6] ?> <i class="fa-solid fa-shop"></i></a>
+                                    print("class= 'active'");
+                                } ?>><?= $buttontext[6] ?> <i class="fa-solid fa-shop"></i></a>
         <?php
         if ($_SESSION["UserLoggedIn"]) {
         ?>
             <a href="shopingcart.php" <?php if ($activePage == "ShopingCart") {
-                                                        print("class= 'active'");
-                                                    } ?>><?= $buttontext[7] ?> <i class="fa fa-fw fa-shopping-basket"></i></a>
+                                            print("class= 'active'");
+                                        } ?>><?= $buttontext[7] ?> <i class="fa fa-fw fa-shopping-basket"></i></a>
         <?php
         }
         ?>
 
         <a href="register_login.php" <?php if ($activePage == "register_login") {
-                                                        print("class= 'active'");
-                                                    } ?>><?= $buttontext[8] ?><i class="fa-solid fa-registered"></i></a>
+                                            print("class= 'active'");
+                                        } ?>><?= $buttontext[8] ?><i class="fa-solid fa-registered"></i></a>
 
         <?php
         if ($lang == "EN") {
@@ -78,10 +78,10 @@ session_start();
 if (!isset($_SESSION["UserLoggedIn"])) {
     $_SESSION["UserLoggedIn"] = false;
 }
-if(!isset($_SESSION["Language"])){
+if (!isset($_SESSION["Language"])) {
     $_SESSION["Language"] = "EN";
 }
-if(isset($_GET["lang"])){
+if (isset($_GET["lang"])) {
     $_SESSION["Language"] = $_GET["lang"];
 }
 
@@ -144,9 +144,9 @@ if (isset($_POST["UserName"], $_POST["psw"], $_POST["pswver"])) {
 
 if (isset($_POST["BuyAll"])) {
 
-    if (!$_SESSION["UserLoggedIn"]) {
+    if ($_SESSION["UserLoggedIn"] == false) {
         header("location: products.php");
-        die;
+        die();
     }
 
     if (count($_SESSION["ShoppingCart"]) == 0) {
