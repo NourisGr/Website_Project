@@ -35,3 +35,16 @@ Done:
     -Greek Version for register and login page ready
     - When user loged in, is unable to reach register or login page, in case he tries to reach by changing the link he is automatically redirected to index.php
     -corrected small bug when user is not loged in, he can not reach shoppingcart and he is redirected to products page.
+01/07/2022
+    -When User is loggedin he can not see the buttons register and login in the navbar.
+03/07/2022
+    -Admin can create product (image not working)
+    -Admin can view orders
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Download the files 
+Run users.sql
+Go to website and create a user
+To create an admin just do the step before and after go to admin.sql and and inside of "" white the user that has been created and run the sql
+    example: Update  Users set UserType=1 where UserName="Dan";
+    

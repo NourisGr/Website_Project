@@ -9,7 +9,7 @@
     <link href="include/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src='include/bootstrap/js/bootstrap.bundle.min.js'></script>
     <script src="https://kit.fontawesome.com/a2f6705154.js" crossorigin="anonymous"></script>
-    <title>Home Page</title>
+    <title>Login</title>
 </head>
 
 <body>
@@ -24,7 +24,7 @@
 
 
         if ($_SESSION["Language"] == "EN") {
-            navbar("login", "login.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Register "], "EN");
+            navbar("login", "login.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Admin", "Orders", "Register ", "Login"], "EN");
     ?>
 
             <div class="loginpage">
@@ -70,7 +70,7 @@
 
         <?php
         } else {
-            navbar("login", "login.php", ["Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Καρτέλα", "Εγγραφή "], "GR");
+            navbar("login", "login.php", ["Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Καρτέλα", "Διαχείριση", "Παραγγελίες ", "Εγγραφή", "Σύνδεση"], "GR");
         ?>
             <div class="loginpage">
 

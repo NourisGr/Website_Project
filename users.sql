@@ -6,9 +6,11 @@ use shop;
 create table Users(
     UserId int not NULL AUTO_INCREMENT,
     UserName VARCHAR(30) UNIQUE,
+    UserType int NOT NULL,
     UserPassword varchar(255),
     PRIMARY KEY (UserId)
 );
+
 
 
 CREATE TABLE Products (
@@ -20,10 +22,10 @@ CREATE TABLE Products (
 );
 
 
-INSERT into Products (ProductsName,img,ProductsPrice) VALUE("Techincal Support","products1.png",150);
-INSERT into Products (Productsname,img,ProductsPrice) VALUE("Netflix Promo Code","products2.png",-100);
+INSERT into Products (ProductsName,img,ProductsPrice) VALUE("Techincal Support","products1.png",450);
+INSERT into Products (Productsname,img,ProductsPrice) VALUE("Netflix Promo Code","products2.png",100);
 INSERT into Products (Productsname,img,ProductsPrice) VALUE("Philips 499P4 49","products3.png", 859);
-INSERT into Products (Productsname,img,ProductsPrice) VALUE("PC Master","products4.png",-200);
+INSERT into Products (Productsname,img,ProductsPrice) VALUE("PC Master","products4.png",200);
 
 
 CREATE TABLE Languages(
@@ -78,3 +80,5 @@ Create TABLE List(
     Foreign key(OrderId) REFERENCES Orders(OrderId),
     Primary key(ListItem)
 );
+
+CREATE VIEW SeeAllOrders as SELECT OrderId, UserName, SUM(ProductsPrice*NumberOfItems) as OrderAmount FROM Orders NATURAL JOIN Users NATURAL JOIN List NATURAL JOIN Products GROUP BY OrderId;

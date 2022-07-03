@@ -49,16 +49,38 @@ function navbar($activePage, $URL, $buttontext, $lang)
         <?php
         if ($_SESSION["UserLoggedIn"]) {
         ?>
-            <a href="shopingcart.php" <?php if ($activePage == "ShopingCart") {
+            <a href="shoppingcart.php" <?php if ($activePage == "ShopingCart") {
                                             print("class= 'active'");
                                         } ?>><?= $buttontext[7] ?> <i class="fa fa-fw fa-shopping-basket"></i></a>
+            <?php
+            if ($_SESSION["Admin"] == 1) {
+            ?>
+                <a href="admin.php" <?php if ($activePage == "Admin") {
+                                        print("class= 'active'");
+                                    } ?>><?= $buttontext[8] ?> <i class="fa-solid fa-building-user"></i></a>
+
+                <a href="orders.php" <?php if ($activePage == "Orders") {
+                                        print("class= 'active'");
+                                    } ?>><?= $buttontext[9] ?> <i class="fa-solid fa-folder-closed"></i></a>
+        <?php
+            }
+        }
+        ?>
+        <?php
+        if (!$_SESSION["UserLoggedIn"]) {
+        ?> <a href="register_login.php" <?php if ($activePage == "register_login") {
+                                            print("class= 'active'");
+                                        } ?>><?= $buttontext[10] ?> <i class="fa-solid fa-registered"></i></a>
+
+
+            <a href="login.php" <?php if ($activePage == "login") {
+                                    print("class= 'active'");
+                                } ?>><?= $buttontext[11] ?> <i class="fa-solid fa-registered"></i></a>
+
+
         <?php
         }
         ?>
-
-        <a href="register_login.php" <?php if ($activePage == "register_login") {
-                                            print("class= 'active'");
-                                        } ?>><?= $buttontext[8] ?><i class="fa-solid fa-registered"></i></a>
 
         <?php
         if ($lang == "EN") {
@@ -107,13 +129,15 @@ if (isset($_POST["User"])) {
             $_SESSION["ShoppingCart"] = [];
             $_SESSION["User"] = $_POST["User"];
             $_SESSION["UserId"] = $row["UserId"];
+            $_SESSION["Admin"] = $row["UserType"];
         } else {
-            //if $_SESSION["Language"]
             print "<script>alert('Wrong Password!!!.')</script>";
         }
     } else {
         print "<script>alert('Your name is not in our DB.')</script>";
     }
+    header("Refresh:0");
+    die();
 }
 
 if (isset($_POST["Logout"])) {
@@ -127,17 +151,23 @@ if (isset($_POST["Logout"])) {
 
 mysqli_report(MYSQLI_REPORT_OFF);
 if (isset($_POST["UserName"], $_POST["psw"], $_POST["pswver"])) {
-    if ($_POST["psw"] == $_POST["pswver"]) {
-        $sqlInsert = $connection->prepare("INSERT INTO USERS(UserName,UserPassword) VALUES(?,?)");
-        $sqlInsert->bind_param("ss", $_POST["UserName"], $_POST["psw"]);
-        if (!$sqlInsert->execute()) {
-            print("<script>alert('User already exists!')</script>");
+    if ($_POST["UserName"] != "" && $_POST["psw"] != "" && $_POST["pswver"] != "") {
+        if ($_POST["psw"] == $_POST["pswver"]) {
+            $sqlInsert = $connection->prepare("INSERT INTO Users(UserName,UserType,UserPassword) VALUES(?,0,?)");
+            $sqlInsert->bind_param("ss", $_POST["UserName"], $_POST["psw"]);
+            if (!$sqlInsert->execute()) {
+                print("<script>alert('User already exists!')</script>");
+            } else {
+                print("<script>alert('You have been registered successfully!!!')</script>");
+            }
         } else {
-            print("<script>alert('You have been registered successfully!!!')</script>");
+            print("<script>alert('Password don`t match!!!')</script>");
         }
     } else {
-        print("<script>alert('Password don`t match!!!')</script>");
+        print("<script>alert('Please fill all information!!!')</script>");
     }
+    header("Refresh:0");
+    die();
 }
 
 
@@ -168,12 +198,34 @@ if (isset($_POST["BuyAll"])) {
 
         $_SESSION["ShoppingCart"]  = [];
         print "<script>alert('Your Order has been sent!!')</script>";
-    }
-
-
-
-    if (isset($_POST["ProductToDelete"])) {
-        unset($_SESSION["ShoppingCart"][$_POST["ProductToDelete"]]);
+        header("Refresh:0");
+        die();
     }
 }
+// Create Product
+//  isset($_POST["productname"])&&isset($_POST["descEN"])&&isset($_POST["descGR"])&&isset($_POST["price"])&&
+if (isset($_POST["sub"], $_POST["productname"], $_POST["descEN"], $_POST["descGR"], $_POST["img"], $_POST["price"])) {
+    $sqlInsert = $connection->prepare("INSERT INTO Products (ProductsName, img, ProductsPrice) VALUES (?,?,?)");
+    $sqlInsert->bind_param("sss", $_POST["productname"], $_POST["img"], $_POST["price"]);
+    $sqlInsert->execute();
+
+    $selectLastPID = $connection->prepare("SELECT LAST_INSERT_ID() as ls");
+    $selectLastPID->execute();
+    $sss = $selectLastPID->get_result();
+    $lastId = $sss->fetch_assoc();
+
+    //EN DESCRIPTION
+    $sqlInsert = $connection->prepare("INSERT INTO Descriptions (PrdsName,PID,LID,DescText) VALUES (?,?,1,?)");
+    $sqlInsert->bind_param("sss", $_POST["productname"], $lastId['ls'], $_POST["descEN"]);
+    $sqlInsert->execute();
+
+    //GR DESCRIPTION
+    $sqlInsert = $connection->prepare("INSERT INTO Descriptions (PrdsName,PID,LID,DescText) VALUES (?,?,2,?)");
+    $sqlInsert->bind_param("sss", $_POST["productname"], $lastId['ls'], $_POST["descGR"]);
+    $sqlInsert->execute();
+
+    header("Refresh:0");
+    die();
+}
+
 ?>

@@ -7,7 +7,7 @@
     <link rel='stylesheet' type='text/css' media='screen' href='include/css/main.css?t=<?= time(); ?>'>
     <script src="https://kit.fontawesome.com/a2f6705154.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Products</title>
     <style>
     </Style>
 </head>
@@ -17,11 +17,11 @@
     <?php
     include_once("commoncode.php");
     if ($_SESSION["Language"] == "EN") {
-    navbar("products", "products.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ","ShopingCart", "Register "], "EN");
+    navbar("products", "products.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Admin", "Orders", "Register ", "Login"], "EN");
     }
     
     else {
-        navbar("products", "products.php", ["Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Καρτέλα", "Εγγραφή "], "GR");
+        navbar("products", "products.php", ["Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Καρτέλα", "Διαχείριση", "Παραγγελίες ", "Εγγραφή", "Σύνδεση"], "GR");
     }
     ?>
 

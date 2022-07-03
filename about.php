@@ -2,10 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' type='text/css' media='screen' href='include/css/main.css?t=<?= time(); ?>'>
+    <link href="include/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src='include/bootstrap/js/bootstrap.bundle.min.js'></script>
     <script src="https://kit.fontawesome.com/a2f6705154.js" crossorigin="anonymous"></script>
     <title>About</title>
 </head>
@@ -14,8 +16,9 @@
     <?php
     include_once("commoncode.php");
     if ($_SESSION["Language"] == "EN") {
-        navbar("about", "about.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Register "], "EN");
+        navbar("about", "about.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Admin", "Orders", "Register ", "Login"], "EN");
     ?>
+    <div class="hometext">
         <h1>HTSTA & WSERS</h1>
         <ul class="aboutetext">
             <li>In HTSTA class we are learning how to build a WebSite usning HTML and CSS.</li>
@@ -26,7 +29,7 @@
         <img src="include/images/php.gif" class="aboutimg" alt="html">
     <?php
     } else {
-        navbar("about", "about.php", ["Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Καρτέλα", "Εγγραφή"], "GR");
+        navbar("about", "about.php", ["Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Καρτέλα", "Διαχείριση", "Παραγγελίες ", "Εγγραφή", "Σύνδεση"], "GR");
     ?>
         <h1>HTSTA & WSERS</h1>
 
@@ -40,7 +43,7 @@
     <?php
     }
     ?>
-
+    </div>
 
 </body>
 

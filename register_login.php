@@ -9,7 +9,7 @@
     <script src='include/bootstrap/js/bootstrap.bundle.min.js'></script>
     <script src="https://kit.fontawesome.com/a2f6705154.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Register</title>
     <style>
     </Style>
 </head>
@@ -24,7 +24,7 @@
     } else {
 
         if ($_SESSION["Language"] == "EN") {
-            navbar("login", "login.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Register "], "EN");
+            navbar("register_login", "register_login.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Admin", "Orders", "Register ", "Login"], "EN");
     ?>
             <div class="loginpage">
                 <form METHOD="POST">
@@ -69,7 +69,7 @@
 
         <?php
         } else {
-            navbar("register_login", "register_login.php", ["Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Καρτέλα", "Εγγραφή "], "GR");
+            navbar("register_login", "register_login.php", ["Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Καρτέλα", "Διαχείριση", "Παραγγελίες ", "Εγγραφή", "Σύνδεση"], "GR");
         ?>
             <div class="loginpage">
                 <form METHOD="POST">
