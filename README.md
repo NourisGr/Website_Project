@@ -5,7 +5,7 @@ Questions:
 
 
 Pending:  
-    -Apply admin page code from test file to website files to add products and view orders.
+
 Done:
 03/06/2022
     -Icons Updated to version 6.1.1 also new link, Delete button for products added to shoping cart.
