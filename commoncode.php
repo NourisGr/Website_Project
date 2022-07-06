@@ -10,9 +10,11 @@ function navbar($activePage, $URL, $buttontext, $lang)
             print("<div class='malaka'>Welcome " . $_SESSION["User"] . "</div>");
         ?>
 
-            <form METHOD="POST" class="logoutbutton">
-                <input type="submit" name="Logout" value="Logout" class="btn btn-primary btn-sm">
+            <form METHOD="POST" id="logoutForm" hidden>
+                <input type="text" name="Logout">
             </form>
+
+            <a href="#" onclick="document.getElementById('logoutForm').submit();"><?= $buttontext[0] ?> <i class="fa-solid fa-right-from-bracket"></i></a>
 
 
         <?php
@@ -20,48 +22,48 @@ function navbar($activePage, $URL, $buttontext, $lang)
         ?>
         <a href="index.php" <?php if ($activePage == "index") {
                                 print("class= 'active'");
-                            } ?>><?= $buttontext[0] ?> <i class="fa fa-fw fa-home"></i></a>
+                            } ?>><?= $buttontext[1] ?> <i class="fa fa-fw fa-home"></i></a>
 
         <a href="about.php" <?php if ($activePage == "about") {
                                 print("class= 'active'");
-                            } ?>><?= $buttontext[1] ?> <i class="fa fa-fw fa-info"></i></a>
+                            } ?>><?= $buttontext[2] ?> <i class="fa fa-fw fa-info"></i></a>
 
 
         <div class="linkstwo">
-            <a href="#"><?= $buttontext[2] ?> <i class="fa fa-fw fa-envelope"></i></a>
+            <a href="#"><?= $buttontext[3] ?> <i class="fa fa-fw fa-envelope"></i></a>
             <div class="dropdown">
                 <a href="Email.php" <?php if ($activePage == "email") {
                                         print("class= 'active'");
-                                    } ?>><?= $buttontext[3] ?> <i class="fa-regular fa-envelope"></i></a>
+                                    } ?>><?= $buttontext[4] ?> <i class="fa-regular fa-envelope"></i></a>
 
                 <a href="phone.php" <?php if ($activePage == "phone") {
                                         print("class= 'active'");
-                                    } ?>><?= $buttontext[4] ?> <i class="fa-solid fa-phone"></i></a>
+                                    } ?>><?= $buttontext[5] ?> <i class="fa-solid fa-phone"></i></a>
 
                 <a href="Address.php" <?php if ($activePage == "address") {
                                             print("class= 'active'");
-                                        } ?>><?= $buttontext[5] ?> <i class="fa fa-map-marker"></i></a>
+                                        } ?>><?= $buttontext[6] ?> <i class="fa fa-map-marker"></i></a>
             </div>
         </div>
         <a href="products.php" <?php if ($activePage == "products") {
                                     print("class= 'active'");
-                                } ?>><?= $buttontext[6] ?> <i class="fa-solid fa-shop"></i></a>
+                                } ?>><?= $buttontext[7] ?> <i class="fa-solid fa-shop"></i></a>
         <?php
         if ($_SESSION["UserLoggedIn"]) {
         ?>
             <a href="shoppingcart.php" <?php if ($activePage == "ShopingCart") {
                                             print("class= 'active'");
-                                        } ?>><?= $buttontext[7] ?> <i class="fa fa-fw fa-shopping-basket"></i></a>
+                                        } ?>><?= $buttontext[8] ?> <i class="fa fa-fw fa-shopping-basket"></i></a>
             <?php
             if ($_SESSION["Admin"] == 1) {
             ?>
                 <a href="admin.php" <?php if ($activePage == "Admin") {
                                         print("class= 'active'");
-                                    } ?>><?= $buttontext[8] ?> <i class="fa-solid fa-building-user"></i></a>
+                                    } ?>><?= $buttontext[9] ?> <i class="fa-solid fa-building-user"></i></a>
 
                 <a href="orders.php" <?php if ($activePage == "Orders") {
-                                        print("class= 'active'");
-                                    } ?>><?= $buttontext[9] ?> <i class="fa-solid fa-folder-closed"></i></a>
+                                            print("class= 'active'");
+                                        } ?>><?= $buttontext[10] ?> <i class="fa-solid fa-folder-closed"></i></a>
         <?php
             }
         }
@@ -70,12 +72,12 @@ function navbar($activePage, $URL, $buttontext, $lang)
         if (!$_SESSION["UserLoggedIn"]) {
         ?> <a href="register_login.php" <?php if ($activePage == "register_login") {
                                             print("class= 'active'");
-                                        } ?>><?= $buttontext[10] ?> <i class="fa-solid fa-registered"></i></a>
+                                        } ?>><?= $buttontext[11] ?> <i class="fa-solid fa-registered"></i></a>
 
 
             <a href="login.php" <?php if ($activePage == "login") {
                                     print("class= 'active'");
-                                } ?>><?= $buttontext[11] ?> <i class="fa-solid fa-registered"></i></a>
+                                } ?>><?= $buttontext[12] ?> <i class="fa-solid fa-registered"></i></a>
 
 
         <?php

@@ -17,11 +17,11 @@
     <?php
     include_once("commoncode.php");
     if ($_SESSION["Language"] == "EN") {
-    navbar("products", "products.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Admin", "Orders", "Register ", "Login"], "EN");
+    navbar("products", "products.php", ["Logout", "Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Admin", "Orders", "Register ", "Login"], "EN");
     }
     
     else {
-        navbar("products", "products.php", ["Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Καρτέλα", "Διαχείριση", "Παραγγελίες ", "Εγγραφή", "Σύνδεση"], "GR");
+        navbar("products", "products.php", ["Αποσύνδεση", "Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Καρτέλα", "Διαχείριση", "Παραγγελίες ", "Εγγραφή", "Σύνδεση"], "GR");
     }
     ?>
 
@@ -69,6 +69,10 @@
                         </a></p>
                         <h5><?= $row["DescText"] ?> </h5>
                         <h4> <?= $row["ProductsPrice"] ?>€</h4>
+
+                        <?php 
+                        
+                        ?>
 
                         <form method="POST">
                             <input type="hidden" name="BuyProduct" value="<?= $row["PID"] ?>">

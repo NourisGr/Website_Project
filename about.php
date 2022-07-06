@@ -16,7 +16,7 @@
     <?php
     include_once("commoncode.php");
     if ($_SESSION["Language"] == "EN") {
-        navbar("about", "about.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Admin", "Orders", "Register ", "Login"], "EN");
+        navbar("about", "about.php", ["Logout", "Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Admin", "Orders", "Register ", "Login"], "EN");
     ?>
     <div class="hometext">
         <h1>HTSTA & WSERS</h1>
@@ -29,7 +29,7 @@
         <img src="include/images/php.gif" class="aboutimg" alt="html">
     <?php
     } else {
-        navbar("about", "about.php", ["Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Καρτέλα", "Διαχείριση", "Παραγγελίες ", "Εγγραφή", "Σύνδεση"], "GR");
+        navbar("about", "about.php", ["Αποσύνδεση", "Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Καρτέλα", "Διαχείριση", "Παραγγελίες ", "Εγγραφή", "Σύνδεση"], "GR");
     ?>
         <h1>HTSTA & WSERS</h1>
 

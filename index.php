@@ -16,7 +16,7 @@
     <?php
     include_once("commoncode.php");
     if ($_SESSION["Language"] == "EN") {
-        navbar("index", "index.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Admin", "Orders", "Register ", "Login"], "EN");
+        navbar("index", "index.php", ["Logout", "Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Admin", "Orders", "Register ", "Login"], "EN");
     ?>
         <div class="hometext">
             <h1>Welcome!</h1>
@@ -55,7 +55,7 @@
         </div>
     <?php
     } else {
-        navbar("index", "index.php", ["Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Καρτέλα", "Διαχείριση", "Παραγγελίες ", "Εγγραφή", "Σύνδεση"], "GR");
+        navbar("index", "index.php", ["Αποσύνδεση", "Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Καρτέλα", "Διαχείριση", "Παραγγελίες ", "Εγγραφή", "Σύνδεση"], "GR");
 
     ?>
         <div class="hometext">

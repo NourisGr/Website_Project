@@ -21,7 +21,7 @@
         die;
     } else {
 
-        navbar("admin", "admin.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Admin", "Orders", "Register ", "Login"], "EN");
+        navbar("admin", "admin.php", ["Logout", "Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Admin", "Orders", "Register ", "Login"], "EN");
     ?>
         <div class="hometext">
             <h1>Welcome To the Admin Page!</h1>

@@ -14,7 +14,7 @@
     <?php
     include_once("commoncode.php");
     if ($_SESSION["Language"] == "EN") {
-        navbar("address", "address.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Admin", "Orders", "Register ", "Login"], "EN");
+        navbar("address", "address.php", ["Logout", "Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Admin", "Orders", "Register ", "Login"], "EN");
     ?>
 
         <img src="include/images/contactus.png" class="contactimg" alt="contact us">
@@ -26,7 +26,7 @@
         </div>
     <?php
     } else {
-        navbar("address", "address.php", ["Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Καρτέλα", "Διαχείριση", "Παραγγελίες ", "Εγγραφή", "Σύνδεση"], "GR");
+        navbar("address", "address.php", ["Αποσύνδεση", "Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Καρτέλα", "Διαχείριση", "Παραγγελίες ", "Εγγραφή", "Σύνδεση"], "GR");
     ?>
         <img src="include/images/contactus.png" class="contactimg" alt="contact us">
         <div class="contactpage">

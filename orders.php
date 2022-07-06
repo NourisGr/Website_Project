@@ -21,7 +21,7 @@
         die;
     } else {
 
-        navbar("orders", "orders.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Admin", "Orders", "Register ", "Login"], "EN");
+        navbar("orders", "orders.php", ["Logout", "Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Admin", "Orders", "Register ", "Login"], "EN");
 
         $sqlStatement = $connection->prepare("SELECT * FROM SeeAllOrders");
         $sqlStatement->execute();

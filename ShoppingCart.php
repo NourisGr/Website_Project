@@ -9,7 +9,7 @@
     <link href="include/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src='include/bootstrap/js/bootstrap.bundle.min.js'></script>
     <script src="https://kit.fontawesome.com/a2f6705154.js" crossorigin="anonymous"></script>
-    <title>Shpping Cart</title>
+    <title>Shopping Cart</title>
     <style>
     </Style>
 </head>
@@ -19,9 +19,9 @@
     <?php
     include_once("commoncode.php");
     if ($_SESSION["Language"] == "EN") {
-        navbar("ShoppingCart", "ShoppingCart.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Admin", "Orders", "Register ", "Login"], "EN");
+        navbar("ShoppingCart", "ShoppingCart.php", ["Logout", "Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Admin", "Orders", "Register ", "Login"], "EN");
     } else {
-        navbar("ShoppingCart", "ShoppingCart.php", ["Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Καρτέλα", "Διαχείριση", "Παραγγελίες ", "Εγγραφή", "Σύνδεση"], "GR");
+        navbar("ShoppingCart", "ShoppingCart.php", ["Αποσύνδεση", "Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Καρτέλα", "Διαχείριση", "Παραγγελίες ", "Εγγραφή", "Σύνδεση"], "GR");
     }
     ?>
     <?php
@@ -51,8 +51,8 @@
                                             <div class="d-flex justify-content-between align-items-center mb-5">
                                                 <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
                                             </div>
-                                            <hr class="my-4">
 
+                                            <hr class="my-4">
                                             <?php
 
                                             $TotalPrice = 0;
@@ -64,6 +64,7 @@
                                                 $row = $result->fetch_assoc();
                                             ?>
                                                 <div class="row mb-4 d-flex justify-content-between align-items-center">
+
                                                     <div class="col-md-2 col-lg-2 col-xl-2">
                                                         <img src="include/images/<?= $row["img"] ?>" class="img-fluid rounded-3">
                                                     </div>
@@ -76,6 +77,7 @@
                                                             <p class="lead fw-normal mb-0"><?= $value ?></p>
                                                         </div>
                                                     </div>
+
                                                     <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                                                         <h6 class="mb-0"><?= $row["ProductsPrice"] ?>€ </h6>
                                                     </div>
@@ -86,6 +88,7 @@
                                                         </form>
 
                                                     </div>
+                                                    <hr class="my-4">
                                                 </div>
                                             <?php
                                                 $TotalPrice += $row["ProductsPrice"] * $value;
@@ -98,8 +101,6 @@
                                         <div class="p-5">
                                             <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
                                             <hr class="my-4">
-                                            <hr class="my-4">
-
                                             <div class="d-flex justify-content-between mb-5">
                                                 <h5 class="text-uppercase">Total price</h5>
                                                 <h5><?= $TotalPrice ?> €</h5>

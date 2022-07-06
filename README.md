@@ -48,3 +48,19 @@ Go to website and create a user
 To create an admin just do the step before and after go to admin.sql and and inside of "" white the user that has been created and run the sql
     example: Update  Users set UserType=1 where UserName="Dan";
     
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+After the deadline!!!
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Correction of project
+
+Pending:
+
+    -Create detailed products.
+    -Admin can see what products the user ordered.
+    -When create a new product enter an image and display it to the products page.
+
+Done:   
+05/07/2022
+    -Logout button does not overlap anymore.
+    -Small correction in commonecode.php so the logout button works for both languages.

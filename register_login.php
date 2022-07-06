@@ -24,7 +24,7 @@
     } else {
 
         if ($_SESSION["Language"] == "EN") {
-            navbar("register_login", "register_login.php", ["Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Admin", "Orders", "Register ", "Login"], "EN");
+            navbar("register_login", "register_login.php", ["Logout", "Home ", "About ", "Contact ", "Email ", "Phone ", "Address ", "Products ", "ShopingCart", "Admin", "Orders", "Register ", "Login"], "EN");
     ?>
             <div class="loginpage">
                 <form METHOD="POST">
@@ -69,7 +69,7 @@
 
         <?php
         } else {
-            navbar("register_login", "register_login.php", ["Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Καρτέλα", "Διαχείριση", "Παραγγελίες ", "Εγγραφή", "Σύνδεση"], "GR");
+            navbar("register_login", "register_login.php", ["Αποσύνδεση", "Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Καρτέλα", "Διαχείριση", "Παραγγελίες ", "Εγγραφή", "Σύνδεση"], "GR");
         ?>
             <div class="loginpage">
                 <form METHOD="POST">
