@@ -64,3 +64,4 @@ Done:
 05/07/2022
     -Logout button does not overlap anymore.
     -Small correction in commonecode.php so the logout button works for both languages.
+    -Test that is push is working from laptop.
