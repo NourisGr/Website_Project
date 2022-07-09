@@ -59,6 +59,7 @@ Pending:
     -Create detailed products.
     -Admin can see what products the user ordered.
     -When create a new product enter an image and display it to the products page.
+    -in products page new style to work with bootstrap (code is commented).
 
 
 Done:   
