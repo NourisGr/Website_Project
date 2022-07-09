@@ -36,6 +36,8 @@
                     <tr>
                         <th scope="col">OrderID</th>
                         <th scope="col">UserName</th>
+                        <th scope="col">Products</th>
+                        <th scope="col">Quantity</th>
                         <th scope="col">Total</th>
                     </tr>
                 </thead>
@@ -46,6 +48,8 @@
                         <tr>
                             <td><?= $row["OrderId"] ?></td>
                             <td><?= $row["UserName"] ?></td>
+                            <td></td>
+                            <td></td>
                             <td><?= $row["OrderAmount"] ?>€</td>
                         </tr>
                     <?php

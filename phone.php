@@ -25,11 +25,11 @@
                 </a></h4>
         <?php
     } else {
-        navbar("about", "about.php", ["Αποσύνδεση", "Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Καρτέλα", "Διαχείριση", "Παραγγελίες ", "Εγγραφή", "Σύνδεση"], "GR");
+        navbar("phone", "phone.php", ["Αποσύνδεση", "Αρχική", "Σχετικά", "Τρόποι Επικοινωνιάς", "Email", "Κινήτο", "Διεύθυνση", "Προϊόντα", "Καρτέλα", "Διαχείριση", "Παραγγελίες ", "Εγγραφή", "Σύνδεση"], "GR");
         ?>
             <img src="include/images/contactus.png" class="contactimg" alt="contact us">
             <div class="contactpage">
-                <h2>Our telephone number is:</h2>
+                <h2>Ο αριθμός τηλεφώνου μας είναι:</h2>
                 <h4><a href="https://www.yellow.lu/en/reverse-search" target="blank">
                         <li class="fa fa-fw fw fa-phone"></li>+352691258241
                     </a></h4>
