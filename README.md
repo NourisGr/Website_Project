@@ -60,6 +60,7 @@ Pending:
     -Admin can see what products the user ordered.
     -When create a new product enter an image and display it to the products page.
 
+
 Done:   
 05/07/2022
     -Logout button does not overlap anymore.
